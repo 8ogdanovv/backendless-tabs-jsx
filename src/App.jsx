@@ -52,6 +52,7 @@ function App() {
           style={{
             height: showTaskFrame ? '35dvh' : '0',
             transition: 'height 0.5s',
+            border: 'none',
           }}
         />
       </header>
