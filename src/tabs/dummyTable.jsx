@@ -10,13 +10,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import computeHeight from '../utils/computeHeight';
 
 
 const DummyTable = () => {
   const [data, setData] = useState([]);
   const [fetched, setFetched] = useState(false); // Add fetched state
 
-  const { showFrame } = useContext(AppContext);
+  const { showFrame, isLandscape } = useContext(AppContext);
 
   useEffect(() => {
     if (!fetched) {
@@ -51,7 +52,13 @@ const DummyTable = () => {
               </TableRow>
             </TableHead>
           </section>
-          <section style={{ height: showFrame ? 'calc(42dvh + 1px)' : 'calc(77dvh + 1px)' }} className="table-body">
+          <section
+            style={
+              computeHeight(showFrame, isLandscape,
+                'calc(37dvh)', 'calc(42dvh - 6px)', 'calc(62dvh)', 'calc(77dvh - 6px)')
+            }
+            className="table-body"
+          >
             <TableBody>
               {data.map((row) => (
                 <TableRow key={row.id}>

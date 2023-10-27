@@ -6,9 +6,10 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [showFrame, setShowFrame] = useState(true);
+  const [isLandscape, setIsLandscape] = useState(true);
 
   return (
-    <AppContext.Provider value={{ showFrame, setShowFrame }}>
+    <AppContext.Provider value={{ showFrame, setShowFrame, isLandscape, setIsLandscape }}>
       {children}
     </AppContext.Provider>
   );

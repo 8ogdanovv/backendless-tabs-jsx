@@ -7,9 +7,44 @@ import RouterComponent from './RouterComponent';
 import { AppContext } from './AppContext';
 
 function App() {
-  const { showFrame: showTaskFrame, setShowFrame: setShowTaskFrame } = useContext(AppContext);
+  const { showFrame: showTaskFrame, setShowFrame: setShowTaskFrame, setIsLandscape } = useContext(AppContext);
   // const [showTaskFrame, setShowTaskFrame] = useState(true);
   const [showButton, setShowButton] = useState(true);
+
+  const [windowDimensions, setWindowDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  const isPositionLandScape = () => {
+    return windowDimensions.width > windowDimensions.height;
+  };
+
+
+  const determineHeight = () => {
+    if (windowDimensions.width > windowDimensions.height) {
+      return "23dvh"; // Landscape mode
+    } else {
+      return "35dvh"; // Portrait mode
+    }
+  };
+
+  const updateWindowDimensions = () => {
+    setWindowDimensions({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+
+    setIsLandscape(isPositionLandScape());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowDimensions);
+    updateWindowDimensions();
+
+    return () => window.removeEventListener("resize", updateWindowDimensions);
+  }, []);
+
   let timeout; // Declare the timeout variable
 
   const handleMouseMove = () => {
@@ -44,12 +79,12 @@ function App() {
     <div onMouseMove={handleMouseMove} className="app">
       <header
         className="header"
-        style={{ height: showTaskFrame ? '35dvh' : '0' }}
+        style={{ height: showTaskFrame ? determineHeight() : '0' }}
       >
         <iframe
           src="https://docs.google.com/document/d/1ZsCmCjY2tErDPjqsMOhoO8ctA0LHIVHhVnvXSBur0ts/edit"
           className="task-frame"
-          style={{ height: showTaskFrame ? '35dvh' : '0' }}
+          style={{ height: showTaskFrame ? determineHeight() : '0' }}
         />
       </header>
       <section className='header-button-title'>

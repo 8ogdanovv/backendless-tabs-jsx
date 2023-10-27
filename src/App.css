@@ -61,7 +61,6 @@
 .read-the-docs {
   color: #888;
   position: relative;
-  padding-bottom: 1rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -69,7 +68,6 @@
 .read-the-docs::after {
   position: absolute;
   content: 'Click on the React, React-router and MUI logos to learn more';
-  bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
@@ -168,11 +166,37 @@
   /* overflow-y: scroll; */
   padding-bottom: 10dvh;
 }
-
 .footer {
   position: fixed;
   bottom: 0;
   height: 10dvh;
+}
+
+@media (orientation: portrait) {
+  .footer {
+    height: 10dvh;
+  }
+
+  .read-the-docs {
+    padding-bottom: 1rem;
+  }
+  .read-the-docs::after {
+    bottom: 0;
+  }
+}
+
+@media (orientation: landscape) {
+  .footer {
+    height: 10dvh;
+  }
+
+  .read-the-docs {
+    padding-bottom: 1rem;
+    bottom: 1rem;
+  }
+  .read-the-docs::after {
+    bottom: 1rem;
+  }
 }
 
 .header, .task-frame .content {

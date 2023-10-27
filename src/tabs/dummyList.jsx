@@ -11,12 +11,13 @@ import CommentIcon from '@mui/icons-material/Comment';
 import './DummyComponent.css';
 import CircularLoader from '../components/CircularLoader';
 import { AppContext } from '../AppContext';
+import computeHeight from '../utils/computeHeight';
 
 
 const DummyList = () => {
   const [todos, setTodos] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const { showFrame } = useContext(AppContext);
+  const { showFrame, isLandscape } = useContext(AppContext);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +49,13 @@ const DummyList = () => {
   }
 
   return (
-    <section className='todos-container' style={{ height: showFrame ? '45dvh' : '80dvh' }}>
+    <section
+      className='todos-container'
+      style={
+              computeHeight(showFrame, isLandscape,
+                '45dvh', '45dvh', 'calc(69dvh - 5px)', '80dvh')
+        }
+    >
       <List sx={{ width: '100%', minWidth: 360, bgcolor: 'background.paper' }}>
         {todos.map((todo) => {
           const { id, todo: todoItem, completed } = todo;

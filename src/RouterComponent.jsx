@@ -15,7 +15,7 @@ function RouterComponent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/dummyTable");
+    navigate("/dummyChart");
   }, []);
 
   return (

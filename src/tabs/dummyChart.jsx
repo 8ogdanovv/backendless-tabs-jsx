@@ -3,6 +3,7 @@ import { BarChart } from '@mui/x-charts/BarChart';
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from '../AppContext';
 import CircularLoader from '../components/CircularLoader';
+import computeHeight from '../utils/computeHeight';
 
 const chartSetting = {
   xAxis: [
@@ -15,7 +16,7 @@ const chartSetting = {
 const valueFormatter = (value) => `${value}$`;
 
 const DummyChart = () => {
-  const { showFrame } = useContext(AppContext);
+  const { showFrame, isLandscape } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,7 +45,13 @@ const DummyChart = () => {
   } else {
 
     return (
-      <section className='chart-container' style={{ height: showFrame ? '45dvh' : '80dvh' }}>
+      <section
+        className='chart-container'
+        style={
+              computeHeight(showFrame, isLandscape,
+                '45dvh', '45dvh', 'calc(69dvh - 5px)', '80dvh')
+        }
+      >
         <BarChart
           dataset={data}
           yAxis={[{ scaleType: 'band', dataKey: 'id' }]}
