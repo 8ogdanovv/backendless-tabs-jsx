@@ -7,23 +7,33 @@ This project serves as a template for a React-based application that implements 
 ![portrait](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-portrait.png)
 
 ## Features
-+ Dynamic Tabs: Implementing dynamic tabs with React components without the need for backend integration.
-+ Chart Rendering: Displaying data in the form of interactive charts using the Material-UI library.
-+ List Functionality: Presenting a list of items with checkboxes and commenting options.
-+ Routing and Navigation: Utilizing React Router to manage navigation within the application.
-+ Component Structure: Organizing the components in a structured format for better readability and maintainability.
-+ CI/CD Integration: Implementing continuous integration and continuous deployment with GitHub Actions.
++ Dynamic Tabs:  
+Implementing dynamic tabs with React components without the need for backend integration.
++ Chart Rendering:  
+Displaying data in the form of interactive charts using the Material-UI library.
++ List Functionality:  
+Presenting a list of items with checkboxes and commenting options.
++ Routing and Navigation:  
+Utilizing React Router to manage navigation within the application.
++ Component Structure:  
+Organizing the components in a structured format for better readability and maintainability.
++ CI/CD Integration:  
+Implementing continuous integration and continuous deployment with GitHub Actions.
 
 ## Project Structure
 ```arduino
-├── index.html
-├── package.json
+├── .github/workflows/autodeploy.yml
+├── docs/
+│   ├── screenshot-portrait.png
+│   ├── screenshot-landscape.png
 ├── public/
+│   ├── .nojekyll
+│   ├── react.svg
 ├── src/
-│   ├── App.css
-│   ├── App.jsx
-│   ├── AppContext.jsx
 │   ├── assets/
+│   │   ├── MUI-logo.svg
+│   │   ├── react-router-mark-color.svg
+│   │   ├── react.svg
 │   ├── components/
 │   │   ├── CircularLoader.css
 │   │   ├── CircularLoader.jsx
@@ -36,9 +46,14 @@ This project serves as a template for a React-based application that implements 
 │   │   ├── DummyList.jsx
 │   │   └── DummyTable.jsx
 │   ├── utils/computeHeight.js
+│   ├── App.css
+│   ├── App.jsx
+│   ├── AppContext.jsx
+│   ├── index.css
 │   ├── main.jsx
-│   ├── RouterComponent.jsx
-│   └── index.css
+│   └── RouterComponent.jsx
+├── index.html
+├── package.json
 ├── vite.config.js
 ```
 
