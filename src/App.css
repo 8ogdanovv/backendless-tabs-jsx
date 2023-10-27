@@ -30,7 +30,8 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #ff1c4644);
+  -webkit-filter: drop-shadow(0 0 2em #ff1c4644);
 }
 
 .logo.react:hover {
@@ -47,7 +48,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  a:nth-of-type(1) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
@@ -55,12 +56,18 @@
 .read-the-docs {
   color: #888;
   position: relative;
+  padding-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .read-the-docs::after {
   position: absolute;
-  content: 'Click on the Vite and React logos to learn more';
+  content: 'Click on the React and React-router logos to learn more';
   bottom: 0;
   left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .header,
@@ -77,13 +84,20 @@
 
 .task-frame {
   width: 100%;
+  border: none;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
 }
 
 .header {
   flex-direction: column;
 }
 
-.content {
+.main {
+  width: 100%;
   justify-content: space-between;
 }
 

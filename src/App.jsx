@@ -1,11 +1,13 @@
 import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import reactRouterLogo from './assets/react-router-mark-color.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
+import RouterComponent from './RouterComponent';
 
 function App() {
   const [showTaskFrame, setShowTaskFrame] = useState(true);
   const [showButton, setShowButton] = useState(true);
+  let timeout; // Declare the timeout variable
 
   const handleMouseMove = () => {
     if (!showButton && !showTaskFrame) {
@@ -13,7 +15,7 @@ function App() {
     } else {
       clearTimeout(timeout);
       setShowButton(true);
-      const timeout = setTimeout(() => {
+      timeout = setTimeout(() => {
         setShowButton(false);
       }, 500);
     }
@@ -24,7 +26,6 @@ function App() {
   };
 
   useEffect(() => {
-    let timeout;
     const mouseMoveHandler = () => {
       setShowButton(true);
       clearTimeout(timeout);
@@ -48,12 +49,7 @@ function App() {
         <iframe
           src="https://docs.google.com/document/d/1ZsCmCjY2tErDPjqsMOhoO8ctA0LHIVHhVnvXSBur0ts/edit"
           className="task-frame"
-          id="myIframe"
-          style={{
-            height: showTaskFrame ? '35dvh' : '0',
-            transition: 'height 0.5s',
-            border: 'none',
-          }}
+          style={{ height: showTaskFrame ? '35dvh' : '0' }}
         />
       </header>
 
@@ -85,17 +81,17 @@ function App() {
         </span>
       </button>
 
-      <main className="content">
-        <section className="">some context</section>
+      <main className='main'>
+        <RouterComponent />
       </main>
 
       <footer className="footer">
         <div className="read-the-docs">
-          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
           <a href="https://react.dev" target="_blank" rel="noreferrer">
             <img src={reactLogo} className="logo react" alt="React logo" />
+          </a>
+          <a href="https://reactrouter.com/" target="_blank" rel="noreferrer">
+            <img src={reactRouterLogo} className="logo" alt="React-router logo" />
           </a>
         </div>
       </footer>
