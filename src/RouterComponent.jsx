@@ -25,11 +25,11 @@ function RouterComponent() {
         <Route
           path="dummyTable"
           element={
-            <React.Suspense fallback={<CircularLoader />}>
               <DummyTable />
-            </React.Suspense>
           }
         />
+            {/* <React.Suspense fallback={<CircularLoader />}>
+            </React.Suspense> */}
 
         <Route
           path="dummyChart"
