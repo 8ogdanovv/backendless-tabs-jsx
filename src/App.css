@@ -111,17 +111,22 @@
   -ms-transition: opacity 1s;
   -o-transition: opacity 1s;
   width: 100%;
-  height: 5dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1dvh;
+  height: 5vh !important;
+  position: absolute;
+  bottom: 0;
 }
 
 .header-button-title {
   position: relative;
   width: 100%;
-  height: 5dvh;
+  height: 5dvh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-title {
@@ -152,12 +157,17 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  display: inline-block;
   transition: transform 0.5s;
   -webkit-transition: transform 0.5s;
   -moz-transition: transform 0.5s;
   -ms-transition: transform 0.5s;
   -o-transition: transform 0.5s;
+
+  height: 5dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .main {
@@ -165,6 +175,8 @@
   justify-content: space-between;
   /* overflow-y: scroll; */
   padding-bottom: 10dvh;
+
+  margin: 0;
 }
 .footer {
   position: fixed;
