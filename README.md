@@ -1,12 +1,6 @@
 # backendless-tabs-jsx
-## React + Vite
-Te5t a55i9nment f0r the Java5cript deve1oper po5iti0n at [8ackend~1e55](backendless.com)
-
-<img width="50" height="50" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.m.wikipedia.org%2Fwiki%2FFile%3AReact-icon.svg&psig=AOvVaw2JtDp8PsKk2Egs41zeGAbo&ust=1698511839471000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMil7OjXloIDFQAAAAAdAAAAABAE" alt="react logo">
-<img width="50" height="50" src="https://www.svgrepo.com/show/354262/react-router.svg" alt="react router logo">
-<img width="50" height="50" src="https://seeklogo.com/images/M/mui-logo-56F171E991-seeklogo.com.png" alt="mui logo">
-
-## Description
+Te5t a55i9nment f0r the Java5cript deve1oper po5iti0n at [8ackend~1e55](backendless.com)  
+  
 This project serves as a template for a React-based application that implements tabs without backend integration. It showcases various components, including charts, lists, and tables, along with a navigation layout and a router component. The project utilizes modern web development tools and libraries such as Material-UI, Vite, React Router, and more.
 
 ![landscape](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-landscape.png)
@@ -31,11 +25,17 @@ This project serves as a template for a React-based application that implements 
 │   ├── AppContext.jsx
 │   ├── assets/
 │   ├── components/
+│   │   ├── CircularLoader.css
+│   │   ├── CircularLoader.jsx
+│   │   ├── NavigationLayout.css
+│   │   ├── NavigationLayout.jsx
+│   │   └── NoMatchingRoute.jsx
 │   ├── tabs/
 │   │   ├── DummyChart.jsx
 │   │   ├── DummyComponent.css
 │   │   ├── DummyList.jsx
 │   │   └── DummyTable.jsx
+│   ├── utils/computeHeight.js
 │   ├── main.jsx
 │   ├── RouterComponent.jsx
 │   └── index.css
