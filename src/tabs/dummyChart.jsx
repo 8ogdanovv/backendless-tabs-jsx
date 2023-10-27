@@ -1,4 +1,4 @@
-import './dummyComponent.css';
+import './DummyComponent.css';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from '../AppContext';
@@ -44,7 +44,7 @@ const DummyChart = () => {
   } else {
 
     return (
-      <section className='chart-container' style={{ height: showFrame ? '42dvh' : '77dvh' }}>
+      <section className='chart-container' style={{ height: showFrame ? '45dvh' : '80dvh' }}>
         <BarChart
           dataset={data}
           yAxis={[{ scaleType: 'band', dataKey: 'id' }]}

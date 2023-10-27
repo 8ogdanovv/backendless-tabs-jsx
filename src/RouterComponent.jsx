@@ -6,16 +6,16 @@ import NavigationLayout from './components/NavigationLayout';
 import NoMatchingRoute from './components/NoMatchingRoute';
 import CircularLoader from './components/CircularLoader';
 
-const DummyTable = React.lazy(() => import('./tabs/dummyTable'));
-const DummyChart = React.lazy(() => import('./tabs/dummyChart'));
-const DummyList = React.lazy(() => import('./tabs/dummyList'));
+const DummyTable = React.lazy(() => import('./tabs/DummyTable'));
+const DummyChart = React.lazy(() => import('./tabs/DummyChart'));
+const DummyList = React.lazy(() => import('./tabs/DummyList'));
 
 function RouterComponent() {
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/dummyChart");
+    navigate("/dummyList");
   }, []);
 
   return (

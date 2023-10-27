@@ -38,17 +38,17 @@
 
 .flex-grow {
   flex-grow: 1;
-  width: 80dvw;
 }
 
 .flex-end {
   align-self: flex-end;
+  position: relative;
+  width: 10ch;
+  text-align: center;
 }
 
 .flex-end:last-child {
   align-self: flex-end;
-  position: relative;
-  left: 2ch;
 }
 
 .table-quote {
@@ -65,4 +65,16 @@
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
+}
+
+.todos-container {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
+
+.list-item-text {
+  color: black;
 }

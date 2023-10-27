@@ -1,4 +1,4 @@
-import './dummyComponent.css';
+import './DummyComponent.css';
 import { useEffect, useState, useContext } from 'react';
 import { AppContext } from '../AppContext';
 
@@ -51,7 +51,7 @@ const DummyTable = () => {
               </TableRow>
             </TableHead>
           </section>
-          <section style={{ height: showFrame ? '42dvh' : '77dvh' }} className="table-body">
+          <section style={{ height: showFrame ? 'calc(42dvh + 1px)' : 'calc(77dvh + 1px)' }} className="table-body">
             <TableBody>
               {data.map((row) => (
                 <TableRow key={row.id}>
