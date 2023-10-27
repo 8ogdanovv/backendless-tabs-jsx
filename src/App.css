@@ -29,9 +29,14 @@
   transition: filter 300ms;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #ff1c4644);
-  -webkit-filter: drop-shadow(0 0 2em #ff1c4644);
+.logo.router:hover {
+  filter: drop-shadow(0 0 2em #ff1c46aa);
+  -webkit-filter: drop-shadow(0 0 2em #ff1c46aa);
+}
+
+.logo.mui:hover {
+  filter: drop-shadow(0 0 2em #1235fcaa);
+  -webkit-filter: drop-shadow(0 0 2em #1235fcaa);
 }
 
 .logo.react:hover {
@@ -63,7 +68,7 @@
 }
 .read-the-docs::after {
   position: absolute;
-  content: 'Click on the React and React-router logos to learn more';
+  content: 'Click on the React, React-router and MUI logos to learn more';
   bottom: 0;
   left: 0;
   width: 100%;
@@ -83,8 +88,17 @@
 }
 
 .task-frame {
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
   width: 100%;
   border: none;
+}
+
+.header {
+  flex-direction: column;
   transition: height 0.5s;
   -webkit-transition: height 0.5s;
   -moz-transition: height 0.5s;
@@ -92,13 +106,67 @@
   -o-transition: height 0.5s;
 }
 
-.header {
-  flex-direction: column;
+.header-button {
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  width: 100%;
+  height: 5dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1dvh;
+}
+
+.header-button-title {
+  position: relative;
+  width: 100%;
+  height: 5dvh;
+}
+
+.header-title {
+  position: absolute;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  width: 100%;
+  height: 5dvh;
+  margin: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.header-button-span {
+  font-size: 2dvh;
+  width: 2dvh;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
 }
 
 .main {
   width: 100%;
   justify-content: space-between;
+  /* overflow-y: scroll; */
+  padding-bottom: 10dvh;
 }
 
 .footer {

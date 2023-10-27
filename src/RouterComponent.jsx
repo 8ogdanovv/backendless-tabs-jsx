@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 
 import NavigationLayout from './components/NavigationLayout';
 import NoMatchingRoute from './components/NoMatchingRoute';
+import CircularLoader from './components/CircularLoader';
 
 const DummyTable = React.lazy(() => import('./tabs/dummyTable'));
 const DummyChart = React.lazy(() => import('./tabs/dummyChart'));
@@ -14,7 +15,7 @@ function RouterComponent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/dummyTable");
+    navigate("/dummyChart");
   }, []);
 
   return (
@@ -24,7 +25,7 @@ function RouterComponent() {
         <Route
           path="dummyTable"
           element={
-            <React.Suspense fallback={<>...</>}>
+            <React.Suspense fallback={<CircularLoader />}>
               <DummyTable />
             </React.Suspense>
           }
@@ -33,7 +34,7 @@ function RouterComponent() {
         <Route
           path="dummyChart"
           element={
-            <React.Suspense fallback={<>...</>}>
+            <React.Suspense fallback={<CircularLoader />}>
               <DummyChart />
             </React.Suspense>
           }
@@ -42,7 +43,7 @@ function RouterComponent() {
         <Route
           path="dummyList"
           element={
-            <React.Suspense fallback={<>...</>}>
+            <React.Suspense fallback={<CircularLoader />}>
               <DummyList />
             </React.Suspense>
           }

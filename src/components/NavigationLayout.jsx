@@ -48,7 +48,7 @@ function NavigationLayout() {
 
       <hr />
 
-      <Outlet/>
+      <Outlet className="router-outlet"/>
     </div>
   );
 }

@@ -1,3 +1,68 @@
 .content {
   background-color: #1a1a1a;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.copy-button {
+  width: 10ch;
+}
+
+.table-container {
+  margin: 0;
+}
+
+.table-container b {
+  font-size: 125%;
+}
+
+.table-body {
+  width: 100dvw;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -ms-transition: height 1s;
+  -o-transition: height 1s;
+  overflow-y: scroll;
+}
+
+.table-head {
+  width: 100dvw;
+  overflow-x: hidden;
+}
+
+.flex-row {
+  width: 100dvw;
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
+  width: 80dvw;
+}
+
+.flex-end {
+  align-self: flex-end;
+}
+
+.flex-end:last-child {
+  align-self: flex-end;
+  position: relative;
+  left: 2ch;
+}
+
+.table-quote {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.chart-container {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
