@@ -1,0 +1,1 @@
+import{r as f}from"./index-e6a753b4.js";function l(e,t){typeof e=="function"?e(t):e&&(e.current=t)}const r=typeof window<"u"?f.useLayoutEffect:f.useEffect,E=r;function h(...e){return f.useMemo(()=>e.every(t=>t==null)?null:t=>{e.forEach(u=>{l(u,t)})},e)}const y=(e,t,u,o,c,i)=>{let n;return e&&t?n=u:e&&!t?n=o:!e&&t?n=c:!e&&!t&&(n=i),{height:n}};export{E as a,y as c,l as s,h as u};
