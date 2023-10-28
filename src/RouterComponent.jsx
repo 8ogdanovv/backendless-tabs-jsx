@@ -15,15 +15,15 @@ function RouterComponent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/dummyTable");
+    navigate("/backendless-tabs-jsx/dummyTable");
   }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<NavigationLayout />}>
+      <Route path="/backendless-tabs-jsx/" element={<NavigationLayout />}>
 
         <Route
-          path="dummyTable"
+          path="/backendless-tabs-jsx/dummyTable"
           element={
             <React.Suspense fallback={<CircularLoader />}>
               <DummyTable />
@@ -32,7 +32,7 @@ function RouterComponent() {
         />
 
         <Route
-          path="dummyChart"
+          path="/backendless-tabs-jsx/dummyChart"
           element={
             <React.Suspense fallback={<CircularLoader />}>
               <DummyChart />
@@ -41,7 +41,7 @@ function RouterComponent() {
         />
 
         <Route
-          path="dummyList"
+          path="/backendless-tabs-jsx/dummyList"
           element={
             <React.Suspense fallback={<CircularLoader />}>
               <DummyList />
