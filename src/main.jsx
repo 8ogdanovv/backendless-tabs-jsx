@@ -8,7 +8,7 @@ import { AppProvider } from './AppContext';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AppProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL} >
         <App />
       </BrowserRouter>
     </AppProvider>
