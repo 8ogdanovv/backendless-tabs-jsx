@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [showFrame, setShowFrame] = useState(true);
+  const [showFrame, setShowFrame] = useState(false);
   const [isLandscape, setIsLandscape] = useState(true);
 
   return (

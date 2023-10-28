@@ -6,7 +6,6 @@
   width: 100%;
   display: flex;
   list-style: none;
-  /* justify-content: space-around; */
   padding: 0;
   gap: 0;
   justify-content: flex-start;
@@ -25,20 +24,35 @@
   width: 100%;
   padding: 1.5rem;
   font-size: 1.5rem;
-  background-color: transparent;
+  background-color: #242424;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #ffffff;
   border-bottom: none;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+  position: relative;
 }
 .nav-list-item-link:not(.active):hover {
   background-color: #ffffff;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
   border-color: #666eff;
   text-shadow: 0 0 5px #fff200;
+  box-shadow: inset 0 0 2rem 0.25rem #fff20044;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+}
+
+.nav-list-item-link:not(.active):hover:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 1px;
+  background-color: #666eff;
 }
 
 .nav-list-item-link.active {
@@ -52,10 +66,14 @@
 .nav-list-item-link.active:hover {
   background-color: #ffffff;
   color: #fff200;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
   border-bottom: none;
   border-color: #fff200;
   text-shadow: 0 0 5px #666eff;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
 }
 
 .nav-list-item-link.pending {}

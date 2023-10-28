@@ -6,7 +6,7 @@ import NavigationLayout from './components/NavigationLayout';
 import NoMatchingRoute from './components/NoMatchingRoute';
 import CircularLoader from './components/CircularLoader';
 
-import DummyTable from './tabs/DummyTable';
+const DummyTable = React.lazy(() => import('./tabs/DummyTable'));
 const DummyChart = React.lazy(() => import('./tabs/DummyChart'));
 const DummyList = React.lazy(() => import('./tabs/DummyList'));
 
@@ -25,11 +25,11 @@ function RouterComponent() {
         <Route
           path="dummyTable"
           element={
+            <React.Suspense fallback={<CircularLoader />}>
               <DummyTable />
+            </React.Suspense>
           }
         />
-            {/* <React.Suspense fallback={<CircularLoader />}>
-            </React.Suspense> */}
 
         <Route
           path="dummyChart"

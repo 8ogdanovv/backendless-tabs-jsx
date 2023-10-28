@@ -8,7 +8,7 @@ export default function CircularLoader() {
   const { showFrame } = useContext(AppContext);
 
   return (
-    <div className='loader-container' style={{ top: showFrame ? '65dvh' : '50dvh' }}>
+    <div className='loader-container' style={{ top: showFrame ? '65dvh' : '44dvh' }}>
       <Box sx={{ display: 'flex' }}>
         <CircularProgress />
       </Box>
