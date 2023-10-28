@@ -33,7 +33,7 @@ jobs:
         run:  npm i -g @slidev/cli
 
       - name: Build
-        run: slidev build --base /backendless-tabs-jsx/
+        run: slidev build --base /
 
       - uses: actions/configure-pages@v3
 
