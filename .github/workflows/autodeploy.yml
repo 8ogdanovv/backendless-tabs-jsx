@@ -1,35 +1,46 @@
-name: Deploy static content to Pages
+name: Deploy pages
 
 on:
+  workflow_dispatch: {}
   push:
     branches:
       - main
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     environment:
       name: github-pages
-    runs-on: ubuntu-latest
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 'lts/*'
+
       - name: Install dependencies
         run: npm install
+
+      - name: Install slidev
+        run:  npm i -g @slidev/cli
+
       - name: Build
-        run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        run: slidev build --base /backendless-tabs-jsx/
+
+      - uses: actions/configure-pages@v3
+
+      - uses: actions/upload-pages-artifact@v1
         with:
-          path: './dist'
-      - name: Deploy to GitHub Pages
+          path: dist
+
+      - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v1
-        with:
-          token: ${{ secrets.GH_PAGES_TOKEN }}
+        uses: actions/deploy-pages@v2
