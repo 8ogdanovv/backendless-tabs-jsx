@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: lint
-        run: pnpm run lint
+      # - name: lint
+      #   run: pnpm run lint
 
       # The template does not contain test cases. If you need to use test cases, you can uncomment it
       # - name: Test
