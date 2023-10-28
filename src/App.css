@@ -6,9 +6,10 @@
   height: 100dvh;
   justify-content: space-between;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-dark) 50%, var(--bg-light));
 }
 
-#root {
+#root * {
   box-sizing: border-box;
 }
 
@@ -23,10 +24,13 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 4.75dvh;
   will-change: filter;
   transition: filter 300ms;
+  -webkit-transition: filter 300ms;
+  -moz-transition: filter 300ms;
+  -ms-transition: filter 300ms;
+  -o-transition: filter 300ms;
 }
 
 .logo.router:hover {
@@ -55,22 +59,34 @@
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(1) .logo {
     animation: logo-spin infinite 20s linear;
-  }
+    -webkit-animation: logo-spin infinite 20s linear;
+}
 }
 
 .read-the-docs {
-  color: #888;
-  position: relative;
-  width: 100%;
+  color: var(--text-gray);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 50dvw;
 }
-.read-the-docs::after {
-  position: absolute;
-  content: 'Click on the React, React-router and MUI logos to learn more';
-  left: 0;
-  width: 100%;
+
+.footer p {
+  width: 50dvw;
   text-align: center;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.1dvw;
+  color: var(--text-grey);
+}
+
+.footer-toolkit, .footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50dvw;
+  gap: 5dvw;
 }
 
 .header,
@@ -93,6 +109,10 @@
   -o-transition: height 0.5s;
   width: 100%;
   border: none;
+}
+
+.header, .task-frame .content {
+  width: 100%;
 }
 
 .header {
@@ -118,6 +138,9 @@
   height: 5vh !important;
   min-height: 5vh !important;
   padding: 1.5dvh;
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
 }
 
 .header-button-title {
@@ -127,7 +150,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  text-align: center;
   margin: 0;
   padding: auto;
 }
@@ -149,11 +172,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: -1;
 }
 
 .header-button-span {
-  font-size: 2dvh;
+  font-size: 1.5rem;
   width: 2dvh;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -166,55 +188,74 @@
   -ms-transition: transform 0.5s;
   -o-transition: transform 0.5s;
   position: relative;
-  height: 5dvh;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0;
+  align-self: center;
+  transform-origin: 50% 56%;
 }
 
 .main {
   width: 100%;
   justify-content: space-between;
-  /* overflow-y: scroll; */
-  padding-bottom: 10dvh;
   position: relative;
   z-index: 1;
   margin: 0;
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+  height: fit-content;
 }
+
 .footer {
   position: fixed;
   bottom: 0;
   height: 10dvh;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  height: 10dvh;
+}
+
+.link-image {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5dvh;
+  height: 5dvh;
+}
+
+.link-image svg {
+  width: 3dvh;
+  height: 3dvh;
+  fill: var(--text-dark);
+  max-width: 90%;
+  max-height: 90%;
+  display: block;
+  transition: fill 0.3s ease-in-out;
+  margin: auto;
+}
+
+.link-image:hover>svg {
+  fill: var(--text-grey);
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
 }
 
 @media (orientation: portrait) {
-  .footer {
-    height: 10dvh;
-  }
 
-  .read-the-docs {
-    padding-bottom: 1rem;
-  }
-  .read-the-docs::after {
-    bottom: 0;
+  #root {
+    background: linear-gradient(127.5deg, var(--bg-dark) 50%, var(--bg-light));
   }
 }
 
 @media (orientation: landscape) {
-  .footer {
-    height: 10dvh;
-  }
 
-  .read-the-docs {
-    padding-bottom: 1rem;
-    bottom: 1.5rem;
-  }
-  .read-the-docs::after {
-    bottom: 1.5rem;
+  #root {
+    background: linear-gradient(161deg, var(--bg-dark) 50%, var(--bg-light));
   }
 }
 
-.header, .task-frame .content {
-  width: 100%;
-}
