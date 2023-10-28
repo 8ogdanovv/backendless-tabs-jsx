@@ -1,45 +1,60 @@
-name: Deploy
+name: deploy to gh-pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, test-gh-action]
 
 jobs:
   build:
-    name: Build
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [16.x]
+
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 'latest'
+          run_install: false
+
       - name: Setup Node
         uses: actions/setup-node@v3
-      - name: Install dependencies
-        run: npm install
-      # - name: Configure vite
-      #   run: |
-      #     echo 'import { defineConfig } from 'vite'
-      #           import react from '@vitejs/plugin-react'
-      #           export default {
-      #             plugins: [react()],
-      #           base: "/backendless-tabs-jsx/"
-      #     }' > vite.config.js
-      - name: Build project
-        run: npm run build
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
         with:
-          path: dist
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build:docs
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: ./dist  # Change this to the correct directory for your build
+          # Some chunk files may start with underscores. So we need to disable jekyll. https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}  # Use your own secret token here
