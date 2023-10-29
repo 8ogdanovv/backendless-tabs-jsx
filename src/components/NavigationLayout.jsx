@@ -2,18 +2,15 @@ import { Outlet, NavLink } from "react-router-dom";
 import './NavigationLayout.css';
 
 function NavigationLayout() {
-
   return (
-    <div className="nav-container">
-      <nav className="nav">
+    <div>
+      <nav>
         <ul className="nav-list">
           <li className="nav-list-item">
             <NavLink
               to="/dummyTable"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending nav-list-item-link"
-                  : isActive ? "active nav-list-item-link"
-                    : "nav-list-item-link"
+              className={({ isActive }) =>
+                isActive ? "active nav-list-item-link" : "nav-list-item-link"
               }
             >
               dummyTable
@@ -22,22 +19,18 @@ function NavigationLayout() {
           <li className="nav-list-item">
             <NavLink
               to="/dummyChart"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending nav-list-item-link"
-                  : isActive ? "active nav-list-item-link"
-                    : "nav-list-item-link"
+              className={({ isActive }) =>
+                isActive ? "active nav-list-item-link" : "nav-list-item-link"
               }
             >
-                dummyChart
+              dummyChart
             </NavLink>
           </li>
           <li className="nav-list-item">
             <NavLink
               to="/dummyList"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending nav-list-item-link"
-                  : isActive ? "active nav-list-item-link"
-                    : "nav-list-item-link"
+              className={({ isActive }) =>
+                isActive ? "active nav-list-item-link" : "nav-list-item-link"
               }
             >
               dummyList
@@ -48,7 +41,7 @@ function NavigationLayout() {
 
       <hr />
 
-      <Outlet className="router-outlet"/>
+      <Outlet className="router-outlet" />
     </div>
   );
 }

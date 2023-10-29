@@ -1,7 +1,7 @@
 .content {
-  background-color: #1a1a1a;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .copy-button {
@@ -10,6 +10,7 @@
 
 .table-container {
   margin: 0;
+  overflow-x: hidden;
 }
 
 .table-container b {
@@ -24,31 +25,33 @@
   -ms-transition: height 1s;
   -o-transition: height 1s;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .table-head {
-  width: 100dvw;
+  width: 100%;
   overflow-x: hidden;
 }
 
 .flex-row {
   width: 100dvw;
   display: flex;
+  overflow-x: hidden;
 }
 
 .flex-grow {
   flex-grow: 1;
+  width: 100%;
 }
 
 .flex-end {
-  align-self: flex-end;
   position: relative;
-  width: 10ch;
+  width: 16ch;
   text-align: center;
 }
 
 .flex-end:last-child {
-  align-self: flex-end;
+  width: 15ch;
 }
 
 .table-quote {
@@ -58,7 +61,8 @@
 }
 
 .chart-container {
-  background: #ffffff;
+  width: 100%;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,9 +76,9 @@
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .list-item-text {
-  color: black;
+  color: var(--text-dark);
 }

@@ -1,22 +1,21 @@
-import './DummyComponent.css';
-import { useEffect, useState, useContext } from 'react';
-import { AppContext } from '../AppContext';
-
+import TableContainer from '@mui/material/TableContainer';
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+
+import { useEffect, useState, useContext } from 'react';
+import { AppContext } from '../AppContext';
 import computeHeight from '../utils/computeHeight';
+import './DummyComponent.css';
 
 
 const DummyTable = () => {
   const [data, setData] = useState([]);
   const [fetched, setFetched] = useState(false); // Add fetched state
-
   const { showFrame, isLandscape } = useContext(AppContext);
 
   useEffect(() => {
@@ -55,7 +54,7 @@ const DummyTable = () => {
           <section
             style={
               computeHeight(showFrame, isLandscape,
-                'calc(37dvh)', 'calc(42dvh - 6px)', 'calc(62dvh)', 'calc(77dvh - 6px)')
+                'calc(40.5dvh - 3.75rem + 1px)', 'calc(43.5dvh - 3.75rem + 1px)', 'calc(73.5dvh - 3.75rem + 1px)', 'calc(76.5dvh - 3.75rem + 1px)')
             }
             className="table-body"
           >

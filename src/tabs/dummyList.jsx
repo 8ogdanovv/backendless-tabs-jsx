@@ -1,25 +1,24 @@
-import * as React from 'react';
-import { useContext } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import IconButton from '@mui/material/IconButton';
+import BackspaceTwoToneIcon from '@mui/icons-material/BackspaceTwoTone';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import CommentIcon from '@mui/icons-material/Comment';
-import './DummyComponent.css';
-import CircularLoader from '../components/CircularLoader';
-import { AppContext } from '../AppContext';
-import computeHeight from '../utils/computeHeight';
+import ListItemText from '@mui/material/ListItemText';
 
+import { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../AppContext';
+import CircularLoader from '../components/CircularLoader';
+import computeHeight from '../utils/computeHeight';
+import './DummyComponent.css';
 
 const DummyList = () => {
-  const [todos, setTodos] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [todos, setTodos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { showFrame, isLandscape } = useContext(AppContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://dummyjson.com/todos');
@@ -34,14 +33,16 @@ const DummyList = () => {
     fetchData();
   }, []);
 
-  const handleToggle = (value) => () => {
-    const currentIndex = todos.findIndex((todo) => todo.id === value.id);
-    const newTodos = [...todos];
+  const handleToggle = (id) => () => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
 
-    if (currentIndex !== -1) {
-      newTodos[currentIndex].completed = !newTodos[currentIndex].completed;
-      setTodos(newTodos);
-    }
+  const handleDelete = (id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   if (isLoading) {
@@ -51,10 +52,7 @@ const DummyList = () => {
   return (
     <section
       className='todos-container'
-      style={
-              computeHeight(showFrame, isLandscape,
-                '45dvh', '45dvh', 'calc(69dvh - 5px)', '80dvh')
-        }
+      style={computeHeight(showFrame, isLandscape, '40.5dvh', '43.5dvh', '73.5dvh', '76.5dvh')}
     >
       <List sx={{ width: '100%', minWidth: 360, bgcolor: 'background.paper' }}>
         {todos.map((todo) => {
@@ -62,25 +60,16 @@ const DummyList = () => {
           const labelId = `checkbox-list-label-${id}`;
 
           return (
-            <ListItem
-              key={id}
-              secondaryAction={<IconButton edge="start" aria-label="comments"><CommentIcon /></IconButton>} disablePadding
-            >
-              <ListItemButton
-                role={undefined}
-                onClick={handleToggle(todo)}
-                dense
-              >
+            <ListItem key={id} secondaryAction={
+              <IconButton edge="start" aria-label="comments" onClick={() => handleDelete(id)}>
+                <BackspaceTwoToneIcon />
+              </IconButton>
+            } disablePadding>
+              <ListItemButton role={undefined} onClick={handleToggle(id)} dense>
                 <ListItemIcon>
-                  <Checkbox
-                    edge="end"
-                    checked={completed}
-                    tabIndex={-1}
-                    disableRipple
-                    inputProps={{ 'aria-labelledby': labelId }}
-                  />
+                  <Checkbox edge="end" checked={completed} tabIndex={-1} disableRipple inputProps={{ 'aria-labelledby': labelId }} />
                 </ListItemIcon>
-                <ListItemText id={labelId} primary={todoItem} className="list-item-text"/>
+                <ListItemText id={labelId} primary={todoItem} className="list-item-text" />
               </ListItemButton>
             </ListItem>
           );

@@ -1,29 +1,41 @@
 :root {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-
-  line-height: 1.5;
-  font-weight: 400;
-
   --bg-dark: #121217;
   --bg-grey: #2e2e40;
-  --bg-light: #edeefc;
-
+  --bg-light: #e0e0e0;
   --accent: #5056e5;
-
   --text-blue: #4371ff;
   --text-gray: #a0c2d0;
   --text-grey: #8baac0;
   --text-dark: #12243c;
 
-  color-scheme: light dark;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
   color: white;
-
+  font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  color-scheme: light dark;
+
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#root {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -31,6 +43,7 @@ a {
   color: var(--text-blue);
   text-decoration: inherit;
 }
+
 a:hover {
   color: var(--accent);
 }
@@ -38,7 +51,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -52,12 +65,18 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: var(--accent);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+hr {
+  margin: 0;
 }
 
 @media (prefers-color-scheme: light) {
@@ -65,14 +84,13 @@ button:focus-visible {
     color: var(--text-grey);
     background-color: #ffffff;
   }
+
   a:hover {
     color: var(--text-blue);
   }
+
   button {
     background-color: white;
   }
 }
 
-hr {
-  margin: 0;
-}

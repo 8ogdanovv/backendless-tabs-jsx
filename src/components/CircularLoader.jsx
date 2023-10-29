@@ -1,8 +1,9 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import './CircularLoader.css';
+
 import { useContext } from 'react';
 import { AppContext } from '../AppContext';
+import './CircularLoader.css';
 
 export default function CircularLoader() {
   const { showFrame } = useContext(AppContext);
