@@ -100,6 +100,20 @@ svg {
   color: var(--text-grey);
 }
 
+p.contacts,
+.contacts * {
+  color: var(--text-dark) !important;
+}
+
+.contacts a:hover {
+  color: var(--text-gray) !important;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+
 .footer-toolkit,
 .footer-links {
   display: flex;

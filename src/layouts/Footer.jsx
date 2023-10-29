@@ -2,6 +2,7 @@ import ReactLogo from '../assets/react.svg';
 import ReactRouterLogo from '../assets/react-router-mark-color.svg';
 import MUILogo from '../assets/MUI-logo.svg';
 import { FacebookIcon, LinkedInIcon, GithubIcon } from '../components/LinkIcons';
+import renderHTMLspan from '../utils/renderHTML';
 import './Footer.css';
 
 export default function Footer() {
@@ -53,8 +54,34 @@ export default function Footer() {
           </a>
         </section>
 
-        <p>
-          &copy; 2023 Vadym Chervoniak @vadym4che https://bit.ly/Ful1-5tack
+        <p className='contacts'>
+          <span title='auto-biography (č)oding'>
+            ({renderHTMLspan('&ccaron;')})
+          </span>
+          {renderHTMLspan('&nbsp;')}
+          <span title='stand for Ukraine'>
+            2023
+          </span>
+          {renderHTMLspan('&nbsp;')}
+          <a
+            href="https://vadym4che.tilda.ws/"
+            target="_blank"
+            rel="noreferrer"
+            title="Tilda templated portfolio landing"
+          >
+            Vadym Chervoniak
+          </a>
+          {renderHTMLspan('&nbsp;')}
+            <span title="social media (e.g. TG, X etc.) nickname">@vadym4che</span>
+          {renderHTMLspan('&nbsp;')}
+          <a
+            href="https://bit.ly/Ful1-5tack"
+            target="_blank"
+            rel="noreferrer"
+            title="PDF-like CV on drive.google shortened with bit.ly (color-scheme sensitive redirect)"
+          >
+            https://bit.ly/Ful1-5tack
+          </a>
         </p>
       </div>
     </footer>
