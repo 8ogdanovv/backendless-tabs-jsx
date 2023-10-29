@@ -49,7 +49,7 @@ function RouterComponent() {
           }
         />
 
-        <Route path="*" element={<NoMatchingRoute />} />
+        <Route path="/*" element={<NoMatchingRoute />} />
       </Route>
     </Routes>
   );

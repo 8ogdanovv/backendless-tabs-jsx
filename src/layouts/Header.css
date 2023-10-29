@@ -29,27 +29,49 @@
   -moz-transition: height 0.5s;
   -ms-transition: height 0.5s;
   -o-transition: height 0.5s;
+  background-color: var(--bg-dark);
 }
 
 .crafted-4 {
   position: absolute;
-  left: 116px;
-  top: 0.75dvh;
   z-index: 2;
+  left: 116px;
 }
 
 .crafted-4 i {
   display: inline-block;
   color: var(--text-grey);
-  font-size: 0.6dvh;
   width: 100%;
   text-align: left;
   position: relative;
-  top: -0.2rem;
-  left: -0.5rem;
-  letter-spacing: 0.1ch;
   padding: 0;
   margin: 0;
+}
+
+@media (orientation: portrait) {
+  .crafted-4 {
+    top: 0.75dvh;
+  }
+
+  .crafted-4 i {
+    font-size: 0.6dvh;
+    top: -0.2rem;
+    left: -0.5rem;
+    letter-spacing: 0.1ch;
+  }
+}
+
+@media (orientation: landscape) {
+  .crafted-4 {
+    top: -1dvh;
+  }
+
+  .crafted-4 i {
+    font-size: 1.1dvh;
+    top: 0.1rem;
+    left: -0.6rem;
+    letter-spacing: 0.15ch;
+  }
 }
 
 .company-logo {
