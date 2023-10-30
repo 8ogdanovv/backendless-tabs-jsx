@@ -2,13 +2,16 @@ import { Outlet, NavLink } from "react-router-dom";
 import './NavigationLayout.css';
 
 function NavigationLayout() {
+
+  const baseURL = import.meta.env.BASE_URL;
+
   return (
     <div>
       <nav>
         <ul className="nav-list">
           <li className="nav-list-item">
             <NavLink
-              to="/dummyTable"
+              to={baseURL + 'dummyTable'}
               className={({ isActive }) =>
                 isActive ? "active nav-list-item-link" : "nav-list-item-link"
               }
@@ -18,7 +21,7 @@ function NavigationLayout() {
           </li>
           <li className="nav-list-item">
             <NavLink
-              to="/dummyChart"
+              to={baseURL + 'dummyChart'}
               className={({ isActive }) =>
                 isActive ? "active nav-list-item-link" : "nav-list-item-link"
               }
@@ -28,7 +31,7 @@ function NavigationLayout() {
           </li>
           <li className="nav-list-item">
             <NavLink
-              to="/dummyList"
+              to={baseURL + 'dummyList'}
               className={({ isActive }) =>
                 isActive ? "active nav-list-item-link" : "nav-list-item-link"
               }

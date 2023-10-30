@@ -1,21 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import Header from './layouts/Header';
 import Main from './layouts/Main';
 import Footer from './layouts/Footer';
+import handleRedirectToTable from './utils/handleRedirectToTable';
 import './App.css';
 
 function App() {
-  const {
-    showFrame: showTaskFrame,
-    showButton,
-    setShowButton
-  } = useContext(AppContext);
-
+  const { showFrame, showButton, setShowButton } = useContext(AppContext);
+  const navigate = useNavigate();
+  const baseURL = import.meta.env.BASE_URL;
   let timeout;
 
   const handleMouseMove = () => {
-    if (!showButton && !showTaskFrame) {
+    if (!showButton && !showFrame) {
       setShowButton(true);
     } else {
       clearTimeout(timeout);
@@ -26,11 +25,18 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const redirectURL = handleRedirectToTable(baseURL);
+    if (redirectURL) {
+      navigate(redirectURL);
+    }
+  }, [baseURL, navigate]);
+
   return (
     <div onMouseMove={handleMouseMove} className="app">
       <Header />
       <Main />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

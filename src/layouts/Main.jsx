@@ -1,4 +1,4 @@
-import RouterComponent from '../RouterComponent';
+import NavigationLayout from '../components/NavigationLayout';
 
 const MainStyles = {
   width: '100%',
@@ -12,7 +12,7 @@ const MainStyles = {
 export default function Main() {
   return (
     <main style={ MainStyles }>
-      <RouterComponent />
+      <NavigationLayout />
     </main>
   )
 }

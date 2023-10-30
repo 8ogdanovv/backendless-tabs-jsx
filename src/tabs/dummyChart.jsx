@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from '../AppContext';
 import CircularLoader from '../components/CircularLoader';
 import computeHeight from '../utils/computeHeight';
-import updateURLFromPathString from '../utils/updateURLFromPathString';
 import './DummyComponent.css';
 
 const valueFormatter = (value) => '$' + value;
@@ -33,7 +32,6 @@ const DummyChart = () => {
       }
     };
 
-    updateURLFromPathString();
     fetchData();
   }, []);
 

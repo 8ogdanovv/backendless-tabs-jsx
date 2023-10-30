@@ -10,17 +10,12 @@ import Button from '@mui/material/Button';
 import { useEffect, useState, useContext } from 'react';
 import { AppContext } from '../AppContext';
 import computeHeight from '../utils/computeHeight';
-import updateURLFromPathString from '../utils/updateURLFromPathString';
 import './DummyComponent.css';
 
 const DummyTable = () => {
   const [data, setData] = useState([]);
   const [fetched, setFetched] = useState(false); // Add fetched state
   const { showFrame, isLandscape } = useContext(AppContext);
-
-  useEffect(() => {
-    updateURLFromPathString();
-  }, []);
 
   useEffect(() => {
     if (!fetched) {
