@@ -10,13 +10,17 @@ import Button from '@mui/material/Button';
 import { useEffect, useState, useContext } from 'react';
 import { AppContext } from '../AppContext';
 import computeHeight from '../utils/computeHeight';
+import updateURLFromPathString from '../utils/updateURLFromPathString';
 import './DummyComponent.css';
-
 
 const DummyTable = () => {
   const [data, setData] = useState([]);
   const [fetched, setFetched] = useState(false); // Add fetched state
   const { showFrame, isLandscape } = useContext(AppContext);
+
+  useEffect(() => {
+    updateURLFromPathString();
+  }, []);
 
   useEffect(() => {
     if (!fetched) {
@@ -30,8 +34,8 @@ const DummyTable = () => {
     }
   }, [fetched]); // Run the effect only when fetched changes
 
-  const handleCopy = (e, quote) => {
-    navigator.clipboard.writeText(quote);
+  const handleCopy = (e, quote, author) => {
+    navigator.clipboard.writeText(`"${quote}"\n${author}`);
     e.target.innerText = 'Copied!';
     setTimeout(() => {
       e.target.innerText = ' Copy ';
@@ -66,7 +70,7 @@ const DummyTable = () => {
                   </TableCell>
                   <TableCell align="right">{row.author}</TableCell>
                   <TableCell align="right">
-                    <Button onClick={(e) => handleCopy(e, row.quote)} className="copy-button">
+                    <Button onClick={(e) => handleCopy(e, row.quote, row.author)} className="copy-button">
                       {' Copy '}
                     </Button>
                   </TableCell>

@@ -11,7 +11,6 @@ const DummyChart = React.lazy(() => import('./tabs/DummyChart'));
 const DummyList = React.lazy(() => import('./tabs/DummyList'));
 
 function RouterComponent() {
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,7 +48,7 @@ function RouterComponent() {
           }
         />
 
-        <Route path="/*" element={<NoMatchingRoute />} />
+        <Route path="*" element={<NoMatchingRoute />} />
       </Route>
     </Routes>
   );

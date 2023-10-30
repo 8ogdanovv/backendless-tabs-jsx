@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from '../AppContext';
 import CircularLoader from '../components/CircularLoader';
 import computeHeight from '../utils/computeHeight';
+import updateURLFromPathString from '../utils/updateURLFromPathString';
 import './DummyComponent.css';
 
 const valueFormatter = (value) => '$' + value;
@@ -17,9 +18,13 @@ const DummyChart = () => {
       try {
         const response = await fetch('https://dummyjson.com/carts');
         const data = await response.json();
-        const carts = data.carts.map((c) => ({ id: c.id, total: c.total }));
+        const carts = data.carts.map((c) => ({ id: c.id, total: c.total, discount: c.discountedTotal }));
         // Unshift average price rounded to integer to first position
-        carts.unshift({ id: 0, total: Math.round(carts.reduce((S, c) => S + c.total, 0) / carts.length) });
+        carts.unshift({
+          id: 0,
+          total: Math.round(carts.reduce((S, c) => S + c.total, 0) / carts.length),
+          discount: Math.round(carts.reduce((S, c) => S + c.discount, 0) / carts.length),
+        });
 
         setData(carts);
         setIsLoading(false);
@@ -28,6 +33,7 @@ const DummyChart = () => {
       }
     };
 
+    updateURLFromPathString();
     fetchData();
   }, []);
 
@@ -42,7 +48,10 @@ const DummyChart = () => {
         <BarChart
           dataset={data}
           yAxis={[{ scaleType: 'band', dataKey: 'id' }]}
-          series={[{ dataKey: 'total', label: 'Marketing statistics - prices', valueFormatter }]}
+          series={[
+            { dataKey: 'total', label: 'Cart total price', valueFormatter, color: '#0066cc' },
+            { dataKey: 'discount', label: 'Cart discount', valueFormatter, color: '#ffcc00' },
+          ]}
           layout="horizontal"
           xAxis={[{ label: 'Total checkout price, $' }]}
         />
