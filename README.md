@@ -1,5 +1,5 @@
 # backendless-tabs-jsx
-Te5t a55i9nment f0r the Java5cript deve1oper po5iti0n at [8ackend~1e55](backendless.com)  
+Test assignment for the JavaScript developer position at [backendless.com](backendless.com)  
   
 This project serves as a template for a React-based application that implements tabs without backend integration. It showcases various components, including charts, lists, and tables, along with a navigation layout and a router component. The project utilizes modern web development tools and libraries such as React, React Router, Material-UI, and more.
 
@@ -56,13 +56,14 @@ This project serves as a template for a React-based application that implements 
 ```
 
 ## Project Features
-Implemented Requirements  
+Required Features  
 + React-based CMS: The application is built using React, React Router, and Webpack to function as a simple content management system (CMS).
 + Tab Management: The app fetches a JSON file from a predefined path, which contains tab descriptions, including IDs, titles, orders, and paths to corresponding React components.
 + URL-based Navigation: The app appends the current tab's ID to the URL during tab switching, enabling easy navigation.
 + Default Tab Behavior: The app automatically opens the first tab by default. If the URL already contains a tab ID, that specific tab opens upon app initialization.
 + Lazy Loading: The app adopts a lazy loading approach, loading tab content only when the specific tab is selected, ensuring efficient network usage.
 + Network Efficiency: The app's network usage is optimized, with tab content loaded dynamically only when needed, visible in the browser's Network section.
+
 Additional Features  
 + Customized Material UI Components: Utilizes a customized Material UI library component for enhanced visual appeal and functionality within the application.
 + Responsive Layout: Implements a responsive layout design, ensuring optimal viewing and interaction across various devices and screen sizes.
