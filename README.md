@@ -4,8 +4,9 @@ Test assignment for the JavaScript developer position at [backendless.com](backe
 This project serves as a template for a React-based application that implements tabs without backend integration. It showcases various components, including charts, lists, and tables, along with a navigation layout and a router component. The project utilizes modern web development tools and libraries such as React, React Router, Material-UI, and more.
 
 ![landscape](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-localhost.png)
-![not-found](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-gh-pages.png)
-![portrait](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-not-found.png)
+![gh-pages](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-gh-pages.png)
+![hover](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-hover.png)
+![not-found](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-not-found.png)
 
 ## Project Structure
 ```arduino
