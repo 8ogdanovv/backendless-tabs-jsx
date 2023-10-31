@@ -5,6 +5,7 @@ This project serves as a template for a React-based application that implements 
 
 ![landscape](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-localhost.png)
 ![gh-pages](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-gh-pages.png)
+![lazy-loading](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-lazy-loading.png)
 ![hover](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-hover.png)
 ![not-found](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-not-found.png)
 
