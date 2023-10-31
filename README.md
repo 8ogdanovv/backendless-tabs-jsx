@@ -3,8 +3,8 @@ Te5t a55i9nment f0r the Java5cript deve1oper po5iti0n at [8ackend~1e55](backendl
   
 This project serves as a template for a React-based application that implements tabs without backend integration. It showcases various components, including charts, lists, and tables, along with a navigation layout and a router component. The project utilizes modern web development tools and libraries such as React, React Router, Material-UI, and more.
 
-![landscape](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-landscape.png)
-![not-found](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-portrait.png)
+![landscape](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-localhost.png)
+![not-found](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-gh-pages.png)
 ![portrait](https://github.com/vadym4che/backendless-tabs-jsx/blob/main/docs/screenshot-not-found.png)
 
 ## Project Structure
