@@ -1,3 +1,4 @@
+// s- show, l - landscape, h - hide, p - portrait
 const calculateHeight = (showFrame, isLandscape, sl, sp, hl, hp) => {
   let heightValue;
 

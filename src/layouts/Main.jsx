@@ -1,4 +1,5 @@
 import NavigationLayout from '../components/NavigationLayout';
+import './Main.css';
 
 const MainStyles = {
   width: '100%',
@@ -11,7 +12,7 @@ const MainStyles = {
 
 export default function Main() {
   return (
-    <main style={ MainStyles }>
+    <main style={ MainStyles } className='main'>
       <NavigationLayout />
     </main>
   )

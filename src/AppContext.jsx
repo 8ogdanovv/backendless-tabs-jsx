@@ -9,7 +9,16 @@ export const AppProvider = ({ children }) => {
   const [showButton, setShowButton] = useState(true);
 
   return (
-    <AppContext.Provider value={{ showFrame, setShowFrame, isLandscape, setIsLandscape, showButton, setShowButton }}>
+    <AppContext.Provider
+      value={{
+        showFrame,
+        setShowFrame,
+        isLandscape,
+        setIsLandscape,
+        showButton,
+        setShowButton,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

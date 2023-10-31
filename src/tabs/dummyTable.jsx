@@ -52,8 +52,14 @@ const DummyTable = () => {
           </section>
           <section
             style={
-              computeHeight(showFrame, isLandscape,
-                'calc(40.5dvh - 3.75rem + 1px)', 'calc(43.5dvh - 3.75rem + 1px)', 'calc(73.5dvh - 3.75rem + 1px)', 'calc(76.5dvh - 3.75rem + 1px)')
+              computeHeight(
+                showFrame,
+                isLandscape,
+                'calc(40.5dvh - 3.75rem + 1px)',
+                'calc(43.5dvh - 3.75rem + 1px)',
+                'calc(73.5dvh - 3.75rem + 1px)',
+                'calc(76.5dvh - 3.75rem + 1px)',
+              )
             }
             className="table-body"
           >
