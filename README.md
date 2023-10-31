@@ -49,6 +49,7 @@ This project serves as a template for a React-based application that implements 
 │       ├── computeHeight.js
 │       ├── handleRedirectToTable.js
 │       └── renderHTML.js
+├── .nojekyll
 ├── index.html
 ├── package.json
 ├── vite.config.js
