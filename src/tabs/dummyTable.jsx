@@ -12,22 +12,30 @@ import { AppContext } from '../AppContext';
 import computeHeight from '../utils/computeHeight';
 import './DummyComponent.css';
 
+const STORAGE_KEY = 'quotes';
+
 const DummyTable = () => {
-  const [data, setData] = useState([]);
-  const [fetched, setFetched] = useState(false); // Add fetched state
+  const storedData = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
+  const [data, setData] = useState(storedData || []);
+  const [fetched, setFetched] = useState(false);
   const { showFrame, isLandscape } = useContext(AppContext);
 
   useEffect(() => {
-    if (!fetched) {
+    if (!fetched && (!storedData || storedData.length === 0)) {
       const fetchData = async () => {
-        const response = await fetch('https://dummyjson.com/quotes');
-        const result = await response.json();
-        setData(result.quotes);
-        setFetched(true); // Set fetched to true after data is retrieved
+        try {
+          const response = await fetch('https://dummyjson.com/quotes');
+          const result = await response.json();
+          setData(result.quotes);
+          setFetched(true);
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(result.quotes));
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
       };
       fetchData();
     }
-  }, [fetched]); // Run the effect only when fetched changes
+  }, [fetched, storedData]);
 
   const handleCopy = (e, quote, author) => {
     navigator.clipboard.writeText(`"${quote}"\n${author}`);

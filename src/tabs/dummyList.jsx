@@ -27,7 +27,6 @@ const DummyList = () => {
       const data = await response.json();
       setTodos(data.todos);
       setIsLoading(false);
-      console.log('fetching todos');
     } catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);

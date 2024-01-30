@@ -7,35 +7,39 @@ import './DummyComponent.css';
 
 const valueFormatter = (value) => '$' + value;
 
+const STORAGE_KEY = 'carts';
+
 const DummyChart = () => {
+  const storedData = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
+  const [data, setData] = useState(storedData || []);
+  const [fetched, setFetched] = useState(false);
   const { showFrame, isLandscape } = useContext(AppContext);
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://dummyjson.com/carts');
-        const data = await response.json();
-        const carts = data.carts.map((c) => ({ id: c.id, total: c.total, discount: c.discountedTotal }));
-        // Unshift average price rounded to integer to first position
-        carts.unshift({
-          id: 0,
-          total: Math.round(carts.reduce((S, c) => S + c.total, 0) / carts.length),
-          discount: Math.round(carts.reduce((S, c) => S + c.discount, 0) / carts.length),
-        });
+    if (!fetched && (!storedData || storedData.length === 0)) {
+      const fetchData = async () => {
+        try {
+          const response = await fetch('https://dummyjson.com/carts');
+          const result = await response.json();
+          const carts = result.carts.map((c) => ({ id: c.id, total: c.total, discount: c.discountedTotal }));
+          carts.unshift({
+            id: 0,
+            total: Math.round(carts.reduce((S, c) => S + c.total, 0) / carts.length),
+            discount: Math.round(carts.reduce((S, c) => S + c.discount, 0) / carts.length),
+          });
 
-        setData(carts);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+          setData(carts);
+          setFetched(true);
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(carts));
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData();
+    }
+  }, [fetched, storedData]);
 
-    fetchData();
-  }, []);
-
-  if (isLoading) {
+  if (data.length === 0) {
     return <CircularLoader />;
   } else {
     return (

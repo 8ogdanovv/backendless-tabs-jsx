@@ -29,7 +29,7 @@ export default function Footer() {
       <div className='footer-contacts'>
         <section className='footer-links'>
           <a
-            href="https://www.facebook.com/vadym4che/"
+            href="https://www.facebook.com/bogdanovvad1m/"
             target="_blank"
             rel="noreferrer"
             className="link-image"
@@ -37,7 +37,7 @@ export default function Footer() {
             <FacebookIcon />
           </a>
           <a
-            href="https://www.linkedin.com/in/vadym4che/"
+            href="https://www.linkedin.com/in/bogdanovvad1m/"
             target="_blank"
             rel="noreferrer"
             className="link-image"
@@ -45,7 +45,7 @@ export default function Footer() {
             <LinkedInIcon />
           </a>
           <a
-            href="https://github.com/vadym4che"
+            href="https://github.com/8ogdanovv"
             target="_blank"
             rel="noreferrer"
             className="link-image"
@@ -60,27 +60,27 @@ export default function Footer() {
           </span>
           {renderHTMLspan('&nbsp;')}
           <span title='stand for Ukraine'>
-            2023
+            {`${new Date().getFullYear()}`}
           </span>
           {renderHTMLspan('&nbsp;')}
           <a
-            href="https://vadym4che.tilda.ws/"
+            href="https://8ogdanovv.tilda.ws/"
             target="_blank"
             rel="noreferrer"
             title="Tilda templated portfolio landing"
           >
-            Vadym Chervoniak
+            Bogdanov Vadim
           </a>
           {renderHTMLspan('&nbsp;')}
-            <span title="social media (e.g. TG, X etc.) nickname">@vadym4che</span>
+            <span title="social media (e.g. TG, X etc.) nickname">@bogdanovvad1m</span>
           {renderHTMLspan('&nbsp;')}
           <a
-            href="https://bit.ly/Ful1-5tack"
+            href="https://bit.ly/2PDFcv"
             target="_blank"
             rel="noreferrer"
             title="PDF-like CV on drive.google shortened with bit.ly (color-scheme sensitive redirect)"
           >
-            https://bit.ly/Ful1-5tack
+            https://bit.ly/2PDFcv
           </a>
         </p>
       </div>
